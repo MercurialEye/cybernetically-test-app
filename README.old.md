@@ -1,1 +1,0 @@
-# cybernetically-test-app

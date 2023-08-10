@@ -1,0 +1,11 @@
+.error-message {
+    padding: 8px;
+    border: 1px solid #000000;
+    background-color: #f5f5f5;
+}
+
+.error-message__title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #770f0f;
+}
