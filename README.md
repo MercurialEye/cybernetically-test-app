@@ -39,3 +39,5 @@ volume: Объем.
 Пробовал делать запрос с параметрами: from, to, offset, range, limit. Сервис отвечал что такой параметр недоступен.
 
 Использованы были библиотеки: redux-toolkit, react, typescript, react-beautiful-dnd.
+
+Токен для запроса сохранен в .env
