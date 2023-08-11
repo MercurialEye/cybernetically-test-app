@@ -1,7 +1,9 @@
 import type {PayloadAction} from '@reduxjs/toolkit'
 import {createSlice} from '@reduxjs/toolkit'
 import {Stock} from "../types/Stock";
-import {pageSize} from "../configs/pageSize";
+import {RawStock} from "../types/RawStock";
+import {getExtractedStocks} from "../helpers/getExtractedStocks";
+import {produceData} from "../helpers/produceData";
 
 export interface TableState {
     totalStocks: Stock[]
@@ -19,19 +21,14 @@ const initialState: TableState = {
     hasError: false,
 }
 
-const getExtractedStocks = (stocksData: Stock[], currentPage: number): Stock[] => {
-    const start = currentPage * pageSize;
-    const end = (currentPage + 1) * pageSize;
-    return stocksData.slice(start, end);
-}
-
 export const counterSlice = createSlice({
     name: 'table',
     initialState,
     reducers: {
-        fetchSuccess: (state, action: PayloadAction<{ data: Stock[] }>) => {
-            state.totalStocks = action.payload.data
-            state.stocks = getExtractedStocks(action.payload.data, state.currentPage)
+        fetchSuccess: (state, action: PayloadAction<{ data: RawStock[] }>) => {
+            const producedData = produceData(action.payload.data)
+            state.totalStocks = producedData
+            state.stocks = getExtractedStocks(producedData, state.currentPage)
             state.loaded = true
         },
         fetchError: (state) => {

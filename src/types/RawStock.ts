@@ -1,4 +1,4 @@
-export type Stock = {
+export type RawStock = {
     symbol: string
     sector: string
     securityType: string
@@ -6,9 +6,9 @@ export type Stock = {
     bidSize: number
     askPrice: number
     askSize: number
-    lastUpdated: string
+    lastUpdated: number
     lastSalePrice: number
     lastSaleSize: number
-    lastSaleTime: string
+    lastSaleTime: number
     volume: number
 }

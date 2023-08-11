@@ -8,11 +8,7 @@ import {fetchError, fetchSuccess} from "../store/tableSlice";
 import {ErrorMessage} from "./ErrorMessage/ErrorMessage";
 import "./App.css"
 
-const fetchData = async () => {
-    const token = process.env.REACT_APP_SERVICE_TOKEN
-    const response = await fetch(`https://cloud.iexapis.com/stable/tops?token=${token}`)
-    return await response.json()
-}
+import {fetchTableData} from "../helpers/fetchTableData";
 
 export const App = () => {
     const dispatch = useDispatch()
@@ -22,7 +18,7 @@ export const App = () => {
     useEffect(() => {
         (async () => {
             try {
-                const data = await fetchData()
+                const data = await fetchTableData()
                 dispatch(fetchSuccess({data}))
             } catch (error) {
                 dispatch(fetchError())
