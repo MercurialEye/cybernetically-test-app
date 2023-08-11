@@ -40,4 +40,4 @@ volume: Объем.
 
 Использованы были библиотеки: redux-toolkit, react, typescript, react-beautiful-dnd.
 
-Токен для запроса сохранен в .env
+Токен для запроса сохранен в .env с названием "REACT_APP_SERVICE_TOKEN".
