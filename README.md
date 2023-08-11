@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+Тестовое задание для компании Cybernetically Inc.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Тестовое задание написал: Кочуров Максим.
 
-## Available Scripts
+Была сделана таблица, в которой есть 10 строк с данными по акциям, которые я получаю из сервиса "iexcloud".
 
-In the project directory, you can run:
+Для перемещения по страницам в таблице, была сделана нижняя панель навигации, на которой есть стрелки: вернуться на первую страницу, вернуться назад, пойти вперед, перейти на последнюю страницу. 
 
-### `npm start`
+На панели навигации также есть показатель того какая сейчас страница открыта.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+В шапке таблица находятся названия для полей данных акций.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Сопоставлены поля были по следующему шаблону:
+symbol: Символ
+sector: Сектор
+securityType: Тип безопасности
+bidPrice: Цена предложения
+bidSize: Размер ставки
+askPrice: Спроси цену
+askSize: Спросите размер
+lastUpdated: Последнее обновление
+lastSalePrice: Последняя цена продажи
+lastSaleSize: Размер последней продажи
+lastSaleTime: Время последней распродажи
+volume: Объем
 
-### `npm test`
+Был добавлен небольшой дизайн для таблицы.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Также имеется возможность перемещать строку с акцией вверх или вниз, для этого нужно удержать знак "=", который находится слева у каждой строки с акцией.
 
-### `npm run build`
+У таблицы имеется индикатор загрузки данных с сайта.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+У таблицы имеется оповещение об ошибках, если данные по какой то причине не пришли.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Пагинация была сделана с загрузкой всех данных и постепенной сменой их у пользователя.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Сделать пагинация таким образом, чтобы при переходе на следующую страницу, шел запрос за новыми данными, не удалось, так как в запрос на https://cloud.iexapis.com/stable/tops неполучается вставить параметры с помощью которых можно было бы регулировать данные.
 
-### `npm run eject`
+Пробовал делать запрос с параметрами: from, to, offset, range, limit. Сервис отвечал что такой параметр недоступен.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Использованы были библиотеки: redux-toolkit, react, typescript, react-beautiful-dnd.
